@@ -296,7 +296,7 @@
                             $('span.update_'+prefix+'_error').text(val[0]);
                         })
                     }else{
-                        $('#allDataTable').DataTable().ajax.reload();
+                        $('#allDataTable').DataTable().ajax.reload(null, false);
                         $("#editModal").modal('hide');
                         toastr.success(response.message);
                     }
@@ -340,7 +340,7 @@
                 url: url,
                 type: "GET",
                 success: function (response) {
-                    $('#allDataTable').DataTable().ajax.reload();
+                    $('#allDataTable').DataTable().ajax.reload(null, false);
                     toastr.success(response.message);
                 },
             });

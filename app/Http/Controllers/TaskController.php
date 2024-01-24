@@ -37,18 +37,21 @@ class TaskController extends Controller
 
             return DataTables::of($tasks)
                 ->addIndexColumn()
+                ->editColumn('due_date', function ($row) {
+                    return '<span class="badge bg-dark">' . date('D d-F,Y', strtotime($row->due_date)) . '</span>';
+                })
                 ->editColumn('status', function ($row) {
-                    return '<span class="badge bg-' . ($row->status == 'pending' ? 'warning' : 'success') . '">' . ucfirst($row->status) . '</span>';
+                    return '<span class="badge text-dark bg-' . ($row->status == 'pending' ? 'warning' : 'success') . '">' . ucfirst($row->status) . '</span>';
                 })
                 ->addColumn('action', function ($row) {
                     return '
                         <button type="button" data-id="'.$row->id.'" class="btn btn-primary btn-sm viewBtn" data-bs-toggle="modal" data-bs-target="#viewModal">View</button>
                         <button type="button" data-id="'.$row->id.'" class="btn btn-info btn-sm editBtn" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
                         <button type="button" data-id="'.$row->id.'" class="btn btn-danger btn-sm deleteBtn">Delete</button>
-                        <button type="button" data-id="'.$row->id.'" class="btn btn-' . ($row->status == 'pending' ? 'success' : 'warning') . ' btn-sm statusBtn">' . ($row->status == 'pending' ? 'Completed' : 'Pending') . '</button>
+                        <button type="button" data-id="'.$row->id.'" class="btn btn-' . ($row->status == 'pending' ? 'success' : 'warning') . ' btn-sm statusBtn">' . ($row->status == 'pending' ? 'Completed' : '&nbsp; Pending &nbsp; ') . '</button>
                     ';
                 })
-                ->rawColumns(['status', 'action'])
+                ->rawColumns(['due_date', 'status', 'action'])
                 ->make(true);
         }
 
