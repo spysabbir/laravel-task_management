@@ -25,6 +25,11 @@ class PasswordController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return Redirect::route('profile.edit')->with('status', 'password-updated');
+        $notification = array(
+            'message' => 'Password updated successfully.',
+            'alert-type' => 'success'
+        );
+
+        return back()->with($notification);
     }
 }

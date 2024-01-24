@@ -9,7 +9,8 @@
     <div class="ps-3">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0 p-0">
-                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                <li class="breadcrumb-item">
+                    <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">User Profile</li>
             </ol>
@@ -40,14 +41,6 @@
                         <h4>Update Profile</h4>
                     </div>
                     <div class="card-body">
-                        @if (session('status') === 'profile-updated')
-                            <div class="alert alert-success">
-                                <p>Profile Updated</p>
-                            </div>
-                        @endif
-                        <form id="send-verification" method="post" action="{{ route('verification.send') }}">
-                            @csrf
-                        </form>
                         <form action="{{ route('profile.update') }}" method="POST">
                             @csrf
                             @method('patch')
@@ -67,26 +60,8 @@
                                     <h6 class="mb-0">Email</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="email" class="form-control" name="email" value="{{ old('email', $user->email) }}"/>
-                                    @error('email')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
+                                    <input type="email" class="form-control" name="email" value="{{ $user->email }}" readonly/>
                                 </div>
-                                @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                                    <div class="col-12">
-                                        <p class="mt-2 text-primary">
-                                            Your email address is unverified.
-                                            <button form="send-verification" class="btn btn-info">
-                                                Click here to re-send the verification email.
-                                            </button>
-                                        </p>
-                                        @if (session('status') === 'verification-link-sent')
-                                            <p class="mt-2 text-success">
-                                                A new verification link has been sent to your email address.
-                                            </p>
-                                        @endif
-                                    </div>
-                                @endif
                             </div>
                             <div class="row">
                                 <div class="col-sm-3"></div>
