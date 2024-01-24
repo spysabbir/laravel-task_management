@@ -26,7 +26,7 @@
                 <div class="d-flex align-items-center">
                     <div class="flex-grow-1">
                         <h5 class="mb-2">Today Pending Task</h5>
-                        <h4 class="font-weight-bold">{{ $today_pending_tasks_count }} <small class="text-danger font-13">({{ round(($today_pending_tasks_count/$today_all_tasks_count) * 100, 2) }}%)</small></h4>
+                        <h4 class="font-weight-bold">{{ $today_pending_tasks_count }} <small class="text-danger font-13">({{ $today_pending_tasks_count != 0 ? round(($today_pending_tasks_count / $today_all_tasks_count) * 100, 2) : 0 }}%)</small></h4>
                         <p class="text-secondary mb-0 font-13">Analytics for today</p>
                     </div>
                     <div class="widgets-icons bg-gradient-blues text-white">
@@ -42,7 +42,7 @@
                 <div class="d-flex align-items-center">
                     <div class="flex-grow-1">
                         <h5 class="mb-2">Today Completed Task</h5>
-                        <h4 class="font-weight-bold">{{ $today_completed_tasks_count }} <small class="text-success font-13">({{ round(($today_completed_tasks_count/$today_all_tasks_count) * 100, 2) }}%)</small></h4>
+                        <h4 class="font-weight-bold">{{ $today_completed_tasks_count }} <small class="text-success font-13">({{ $today_completed_tasks_count != 0 ? round(($today_completed_tasks_count / $today_all_tasks_count) * 100, 2) : 0 }}%)</small></h4>
                         <p class="text-secondary mb-0 font-13">Analytics for today</p>
                     </div>
                     <div class="widgets-icons bg-gradient-moonlit text-white">
@@ -74,7 +74,7 @@
                 <div class="d-flex align-items-center">
                     <div class="flex-grow-1">
                         <h5 class="mb-2">Total Pending Task</h5>
-                        <h4 class="font-weight-bold">{{ $pending_tasks_count }} <small class="text-danger font-13">({{ round(($pending_tasks_count/$all_tasks_count) * 100, 2) }}%)</small></h4>
+                        <h4 class="font-weight-bold">{{ $pending_tasks_count }} <small class="text-danger font-13">({{ $pending_tasks_count != 0 ? round(( $pending_tasks_count / $all_tasks_count) * 100, 2) : 0 }}%)</small></h4>
                         <p class="text-secondary mb-0 font-13">Analytics for all</p>
                     </div>
                     <div class="widgets-icons bg-gradient-burning text-white">
@@ -90,7 +90,7 @@
                 <div class="d-flex align-items-center">
                     <div class="flex-grow-1">
                         <h5 class="mb-2">Total Completed Task</h5>
-                        <h4 class="font-weight-bold">{{ $completed_tasks_count }} <small class="text-success font-13">({{ round(($completed_tasks_count/$all_tasks_count) * 100, 2) }}%)</small></h4>
+                        <h4 class="font-weight-bold">{{ $completed_tasks_count }} <small class="text-success font-13">({{ $completed_tasks_count != 0 ? round(($completed_tasks_count / $all_tasks_count) * 100, 2) : 0 }}%)</small></h4>
                         <p class="text-secondary mb-0 font-13">Analytics for all</p>
                     </div>
                     <div class="widgets-icons bg-gradient-lush text-white">
