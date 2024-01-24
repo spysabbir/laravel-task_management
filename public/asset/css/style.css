@@ -1,0 +1,192 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+    padding-top: 0;
+}
+
+header {
+    background-color: #343a40;
+    padding: 15px 80px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-color: #313131;
+}
+
+.navbar-nav {
+    text-align: center;
+}
+
+.nav-link:hover {
+    color: #8833ff;
+}
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #8833ff;
+    text-decoration: none
+}
+
+.download-btn {
+    display: inline-block;
+    margin-left: 20px;
+    background-color: #8833ff;
+    transition: all 0.3s ease;
+}
+.download-btn:hover {
+    background-color: #7f32eb;
+    color: #fff;
+}
+
+.hero-section {
+    background-image: url('https://c0.wallpaperflare.com/preview/134/372/59/abstract-background-copyspace-brainstorm.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 200px 0;
+    position: relative;
+    height: 100vh;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.hero-section a {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    background-color: #8833ff;
+}
+
+.hero-section a:hover {
+    background-color: #7637ce;
+    color: #313131;
+}
+
+.features-section {
+    background-color: #fff;
+    padding: 80px 0;
+    padding-top: 125px;
+}
+
+.feature {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature i {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #8833ff;
+}
+
+.feature h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.feature p {
+    font-size: 1.1em;
+}
+
+.how-it-works-section {
+    padding: 80px 0;
+    padding-top: 125px;
+}
+
+.step {
+    text-align: center;
+}
+
+.step i {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #8833ff;
+}
+
+.step h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.step p {
+    font-size: 1.1em;
+}
+
+.testimonials-section {
+    background-color: #eee;
+    padding: 80px 0;
+    padding-top: 125px;
+}
+
+.testimonial {
+    text-align: center;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+    min-height: 300px;
+}
+
+.testimonial:hover {
+    transform: scale(1.02);
+}
+
+.testimonial p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.testimonial h5 {
+    margin: 0;
+    color: #8833ff;
+}
+
+footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
+    color: #343a40;
+    background-color: #8833ff;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.scroll-to-top:hover {
+    opacity: 0.7;
+    color: #eee;
+}
