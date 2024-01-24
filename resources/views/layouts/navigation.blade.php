@@ -9,7 +9,7 @@
     </li>
     <li class="menu-label">User Panel</li>
     <li>
-        <a href="#">
+        <a href="{{ route('tasks.index') }}">
             <div class="parent-icon">
                 <i class='bx bx-briefcase-alt-2'></i>
             </div>

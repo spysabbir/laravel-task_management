@@ -5,12 +5,14 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 	<!--favicon-->
 	<link rel="icon" href="{{ asset('asset') }}/images/favicon-32x32.png" type="image/png" />
 	<!--plugins-->
 	<link href="{{ asset('asset') }}/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
 	<link href="{{ asset('asset') }}/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
 	<link href="{{ asset('asset') }}/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+    <link href="{{ asset('asset') }}/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 	<!-- loader-->
 	<link href="{{ asset('asset') }}/css/pace.min.css" rel="stylesheet" />
 	<script src="{{ asset('asset') }}/js/pace.min.js"></script>
@@ -24,6 +26,10 @@
 	<link rel="stylesheet" href="{{ asset('asset') }}/css/dark-theme.css" />
 	<link rel="stylesheet" href="{{ asset('asset') }}/css/semi-dark.css" />
 	<link rel="stylesheet" href="{{ asset('asset') }}/css/header-colors.css" />
+
+    <link href="{{ asset('asset') }}/plugins/toastr/toastr.css" rel="stylesheet">
+    <link href="{{ asset('asset') }}/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet">
+
 	<title>{{ config('app.name', 'Laravel') }} –  @yield('title')</title>
 </head>
 
@@ -181,7 +187,7 @@
 		<footer class="page-footer">
 			<p class="mb-0">Copyright © {{ date('Y') }}. All right reserved.</p>
 		</footer>
-        
+
 	</div>
 	<!--end wrapper-->
 
@@ -192,8 +198,41 @@
 	<script src="{{ asset('asset') }}/plugins/simplebar/js/simplebar.min.js"></script>
 	<script src="{{ asset('asset') }}/plugins/metismenu/js/metisMenu.min.js"></script>
 	<script src="{{ asset('asset') }}/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+
+    <script src="{{ asset('asset') }}/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="{{ asset('asset') }}/plugins/toastr/toastr.min.js"></script>
+    <script src="{{ asset('asset') }}/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('asset') }}/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
 	<!--app JS-->
 	<script src="{{ asset('asset') }}/js/app.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            @if(Session::has('message'))
+                var type = "{{ Session::get('alert-type', 'info') }}";
+                switch(type){
+                    case 'info':
+                        toastr.info("{{ Session::get('message') }}");
+                        break;
+
+                    case 'warning':
+                        toastr.warning("{{ Session::get('message') }}");
+                        break;
+
+                    case 'success':
+                        toastr.success("{{ Session::get('message') }}");
+                        break;
+
+                    case 'error':
+                        toastr.error("{{ Session::get('message') }}");
+                        break;
+                }
+            @endif
+        });
+    </script>
+	<!--custom JS-->
+    @yield('script')
+
 </body>
 
 </html>
