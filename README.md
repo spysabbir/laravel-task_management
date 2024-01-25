@@ -33,10 +33,16 @@ Variable Name | Description
 
 - Now migrate the database using
  ```
-php artisan migrate
+php artisan migrate --seed
 ``` 
 
 - At last, we can now run the project using
  ```
 php artisan serve
 ``` 
+
+- Demo login credentials 
+ ``` 
+Email: sabbir@email.com
+Password: 12345678
+```
